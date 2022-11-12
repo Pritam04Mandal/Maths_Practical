@@ -1,0 +1,94 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 11.08.0 ] */
+
+/* [wxMaxima: comment start ]
+Characteristic Eqn: dx/x=dy/y=du/u
+we first consider eqn1: dy/dx=y/x
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+eq1: 'diff(y,x)=y/x;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ode2(eq1,y,x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+solve(y=c1*x,y);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+psol:makelist(c1*x,c1,0,9);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d(psol,[x,-10,10]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+eq2: 'diff(u,x)=u/x;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ode2(eq2,u,x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+psol2: makelist(c2*x,c2,-3,8);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d(psol2,[x,-10,10],[y,-10,10]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+kill(all);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+eq1:'diff(y,x)=y^2/x^2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ode2(eq1,y,x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+solve(-1/y=c1-1/x,y);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+psol:makelist(-x/(c1*x-1),c1,-2,1);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d(psol,[x,-8,8],[y,-3,4]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+eq2:'diff(u,t)=u/t;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ode2(eq2,u,t);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+subst(x-y,t,%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+solve(u=c2*(x-y),u);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+psol2:makelist(c2*x-c2*y,c2,-3,5);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot3d(3*y-3*x,[x,-2,3],[y,3,6]);
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

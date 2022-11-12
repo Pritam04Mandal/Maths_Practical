@@ -1,0 +1,73 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 11.08.0 ] */
+
+/* [wxMaxima: input   start ] */
+kill(all);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+b:'diff(y,t)=1;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ode2(b,y,t);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+b:solve(y=t+c2,y);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+c:'diff(u,t)=1;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ode2(c,u,t);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+c:solve(u=t+c3,u);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+a:'diff(x,t)=u;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ode2(a,x,t);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+a:solve(x=t*u+c1,x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+subst([t=0,x=s^2/2],a);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+subst([t=0,y=s],b);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+subst([t=0,u=s],c);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+'x=t*(t+s)+s^2/2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+'y=t+s;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+'u=t+s;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxdraw3d([color=cyan,parametric_surface(t*(t+s)+s^2/2,t+s,t+s,s,-20000,20000,t,-20000,20000),color=red,parametric(s^2/2,s,s,s,-20000,20000)],title="Integral Surface With Initial Curve");
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

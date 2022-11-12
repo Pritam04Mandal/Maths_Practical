@@ -1,0 +1,63 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 11.08.0 ] */
+
+/* [wxMaxima: comment start ]
+Solve the Initial Value Problem: 3 u_x+2u_y=0;u(x,0)=sin(x)
+Characteristic Equation:
+dx/3=dy/2=du/0
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+kill(all);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+equation_1:'diff(y,x)=2/3;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ode2(equation_1,y,x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+solve(y=((2*x)/3)+c1,c1);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+equation_2: 'diff(u,x)=0;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ode2(equation_2,u,x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+solve(u=c2,c2);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+u=f((3*y-2*x)/3);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+u(x,y):=f((3*y-2*x)/3);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+u(x,0)=sin(x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f(x):=sin(-3*x/2);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+'u(x,y)=u(x,y);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot3d(u(x,y),[x,-10,10],[y,-7,7]);
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
